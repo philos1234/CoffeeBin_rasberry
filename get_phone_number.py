@@ -1,12 +1,19 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+from PyQt5 import uic,QtGui,QtCore
+from PyQt5.QtCore import *
 import re
 
 form_class =uic.loadUiType("get_phone_number.ui")[0]
 
 
-class MyWindow(QMainWindow,form_class):
+class PhoneWindow(QMainWindow,form_class):
+    done_signal = pyqtSignal()
+
+    def signal_run(self):
+        self.done_signal.emit()
+    
     def __init__(self):
         super().__init__()
         self.str = ""
@@ -14,6 +21,7 @@ class MyWindow(QMainWindow,form_class):
         self.number_match = re.compile('\d{3}-\d{3,4}-\d{4}')
         self.setupUi(self)
         self.inputProcess()
+        self.done_signal.connect(QCoreApplication.instance().quit)
 
     def inputProcess(self): 
                 # 버튼
@@ -70,7 +78,8 @@ class MyWindow(QMainWindow,form_class):
             return
         self.display.setText("적립 완료")
         self.result_number = self.str
-        sys.exit(app.exec_())
+        self.signal_run()
+
     def btn_reset(self):
         self.display.clear()
         self.str = ""
@@ -83,11 +92,13 @@ class MyWindow(QMainWindow,form_class):
         if len(self.str) == 0 : return
         self.str = self.str.rstrip(self.str[-1])
         self.display.setText(self.str)
-        
+    
+    def show(self):
+        super().show()
     
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    myWindow = MyWindow()
+    myWindow = PhoneWindow()
     myWindow.show()
     app.exec_()
   
