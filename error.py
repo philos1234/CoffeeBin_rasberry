@@ -16,7 +16,7 @@ class ErrorWindow(QMainWindow,error_ui):
         super().__init__()
         self.setupUi(self)
         self.img_label.setPixmap(QtGui.QPixmap("X.png"))
-        self.img_label.setGeometry(QtCore.QRect(200,100,800,800))
+        self.img_label.setGeometry(QtCore.QRect(270,70,450,450))
         self.done_signal.connect(QCoreApplication.instance().quit)
         self.confirm.clicked.connect(self.btn_confirm)
         
