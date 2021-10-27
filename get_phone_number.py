@@ -16,6 +16,7 @@ class PhoneWindow(QMainWindow,form_class):
     
     def __init__(self):
         super().__init__()
+    
         self.str = ""
         self.result_number = ""
         self.number_match = re.compile('\d{3}-\d{3,4}-\d{4}')
