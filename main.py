@@ -22,7 +22,7 @@ class MainWindow(QMainWindow, main_ui,QCoreApplication):
         super().__init__()
         self.setupUi(self)
         self.img_label.setPixmap(QtGui.QPixmap("coffee.png"))
-        self.img_label.setGeometry(QtCore.QRect(50,100,800,800))
+        self.img_label.setGeometry(QtCore.QRect(250,50,500,500))
 
     def show(self):
         super().show()
