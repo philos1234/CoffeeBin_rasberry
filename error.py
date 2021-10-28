@@ -19,6 +19,7 @@ class ErrorWindow(QMainWindow,error_ui):
         self.img_label.setGeometry(QtCore.QRect(270,70,450,450))
         self.done_signal.connect(QCoreApplication.instance().quit)
         self.confirm.clicked.connect(self.btn_confirm)
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         
     def btn_confirm(self):
         self.signal_run()

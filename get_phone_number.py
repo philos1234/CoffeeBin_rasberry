@@ -23,6 +23,7 @@ class PhoneWindow(QMainWindow,form_class):
         self.setupUi(self)
         self.inputProcess()
         self.done_signal.connect(QCoreApplication.instance().quit)
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
     def inputProcess(self): 
                 # 버튼
