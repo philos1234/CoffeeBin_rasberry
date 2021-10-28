@@ -88,7 +88,7 @@ def main():
         stream.truncate()
         camera.annotate_text = '%s %.2f\n%.1fms' % (labels[label_id], prob,
                                                     elapsed_ms)
-        return labels[label_id]
+        return labels[label_id], prob
 
     finally:
       camera.stop_preview()

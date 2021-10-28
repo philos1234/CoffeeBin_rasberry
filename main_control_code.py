@@ -39,7 +39,8 @@ def check_load_cell():
 # True : Plastic
 # False : Paper
 def tensor_flow():
-    ret = classify_picamera.main()
+    ret,prob = classify_picamera.main()
+    print("classify result : ",ret,"probability : ",prob)
     if ret == 0:
         return False
     else:
