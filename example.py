@@ -20,7 +20,7 @@ def cleanAndExit():
         
     print("Bye!")
     sys.exit()
-def init_hx711(hx):
+def init_hx711():
 
     hx = HX711(20, 21)
 
@@ -50,7 +50,7 @@ def init_hx711(hx):
 # to use both channels, you'll need to tare them both
 #hx.tare_A()
 #hx.tare_B()
-def get_weight():
+def get_weight(hx):
     while True:
         try:
             # These three lines are usefull to debug wether to use MSB or LSB in the reading formats

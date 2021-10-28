@@ -32,7 +32,7 @@ depth2 = 0
 # True : No inner water
 # False : There is some water, process it first
 def check_load_cell():
-    return example.get_weight()
+    return example.get_weight(hx)
 
 # Classify the cup using TensorFlow Lite
 # return True/False
@@ -60,7 +60,7 @@ def do_empty_gui():
 
 # main
 if __name__ == "__main__":
-    hx = example.init_hx711(hx)
+    hx = example.init_hx711()
     #servo.servo_init()
     Ultrasonic.ultra_init()
     #gps.gps_init()
