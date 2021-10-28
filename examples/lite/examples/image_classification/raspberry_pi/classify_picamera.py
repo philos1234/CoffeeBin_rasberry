@@ -57,17 +57,20 @@ def classify_image(interpreter, image, top_k=1):
 
 
 def main():
-  parser = argparse.ArgumentParser(
-      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument(
-      '--model', help='File path of .tflite file.', required=True)
-  parser.add_argument(
-      '--labels', help='File path of labels file.', required=True)
-  args = parser.parse_args()
+  # parser = argparse.ArgumentParser(
+  #     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+  # parser.add_argument(
+  #     '--model', help='File path of .tflite file.', required=True)
+  # parser.add_argument(
+  #     '--labels', help='File path of labels file.', required=True)
+  # args = parser.parse_args()
 
-  labels = load_labels(args.labels)
+  #labels = load_labels(args.labels)
+  labels = load_labels('labels.txt')
 
-  interpreter = Interpreter(args.model)
+  #interpreter = Interpreter(args.model)
+  interpreter = Interpreter('model_unquant.tflite')
+
   interpreter.allocate_tensors()
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
 
