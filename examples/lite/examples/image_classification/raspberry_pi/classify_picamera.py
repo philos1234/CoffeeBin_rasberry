@@ -69,7 +69,7 @@ def main():
   labels = load_labels('./examples/lite/examples/image_classification/raspberry_pi/labels.txt')
 
   #interpreter = Interpreter(args.model)
-  interpreter = Interpreter('./examples/lite/examples/image_classification/raspberry_pi/model_unquant.tflite')
+  interpreter = Interpreter(model_path = "./examples/lite/examples/image_classification/raspberry_pi/model_unquant.tflite")
 
   interpreter.allocate_tensors()
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
