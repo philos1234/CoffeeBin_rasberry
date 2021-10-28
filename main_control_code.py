@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
             gram = check_load_cell()
             print("gram : ",gram,"g")
-            if gram < 5:
+            if gram < 3:
                 continue
             elif gram > 20 :
                 do_empty_gui()
