@@ -3,7 +3,6 @@
 import time
 import sys
 
-global hx
 EMULATE_HX711=False
 referenceUnit = 383
 
@@ -21,7 +20,7 @@ def cleanAndExit():
         
     print("Bye!")
     sys.exit()
-def init_hx711():
+def init_hx711(hx):
 
     hx = HX711(20, 21)
 

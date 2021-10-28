@@ -60,7 +60,7 @@ def do_empty_gui():
 
 # main
 if __name__ == "__main__":
-    hx = example.init_hx711()
+    hx = example.init_hx711(hx)
     #servo.servo_init()
     Ultrasonic.ultra_init()
     #gps.gps_init()
