@@ -66,10 +66,10 @@ def main():
   # args = parser.parse_args()
 
   #labels = load_labels(args.labels)
-  labels = load_labels('labels.txt')
+  labels = load_labels('./labels.txt')
 
   #interpreter = Interpreter(args.model)
-  interpreter = Interpreter('model_unquant.tflite')
+  interpreter = Interpreter('./model_unquant.tflite')
 
   interpreter.allocate_tensors()
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
