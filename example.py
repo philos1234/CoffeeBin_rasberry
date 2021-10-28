@@ -5,7 +5,7 @@ import sys
 global hx
 
 EMULATE_HX711=False
-referenceUnit = 1
+referenceUnit = 383
 
 if not EMULATE_HX711:
     import RPi.GPIO as GPIO
@@ -23,7 +23,7 @@ def cleanAndExit():
     sys.exit()
 def init_hx711():
 
-    hx = HX711(5, 6)
+    hx = HX711(20, 21)
 
     # I've found out that, for some reason, the order of the bytes is not always the same between versions of python, numpy and the hx711 itself.
     # Still need to figure out why does it change.
@@ -64,7 +64,7 @@ def get_weight():
 
             # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
             val = hx.get_weight(5)
-            print(val)
+            #print(val)
 
             # To get weight from both channels (if you have load cells hooked up
             # to both channel A and B), do something like this
@@ -74,6 +74,7 @@ def get_weight():
 
             hx.power_down()
             hx.power_up()
+            return -1*val
             time.sleep(0.1)
 
         except (KeyboardInterrupt, SystemExit):
