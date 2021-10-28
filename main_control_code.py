@@ -79,6 +79,7 @@ if __name__ == "__main__":
                 send_count = 0
 
             gram = check_load_cell()
+            print("gram : ",gram,"g")
             if gram < 5:
                 continue
             elif gram > 20 :
