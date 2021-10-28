@@ -19,13 +19,12 @@ from examples.lite.examples.image_classification.raspberry_pi import classify_pi
 app = QApplication(sys.argv)
 
 #Variables
+global hx
 send_count = 0
 depth1 = 0
 depth2 = 0
 
 #Functions
-
-
 
 
 # Load Cell function
@@ -61,7 +60,7 @@ def do_empty_gui():
 
 # main
 if __name__ == "__main__":
-    example.init_hx711()
+    hx = example.init_hx711()
     #servo.servo_init()
     Ultrasonic.ultra_init()
     #gps.gps_init()

@@ -2,8 +2,8 @@
 
 import time
 import sys
-global hx
 
+global hx
 EMULATE_HX711=False
 referenceUnit = 383
 
@@ -45,7 +45,7 @@ def init_hx711():
     hx.reset()
 
     hx.tare()
-
+    return hx
     print("Tare done! Add weight now...")
 
 # to use both channels, you'll need to tare them both
