@@ -21,6 +21,7 @@ from __future__ import print_function
 
 import argparse
 import io
+import os
 import time
 import numpy as np
 import picamera
@@ -69,6 +70,7 @@ def main():
   labels = load_labels('./examples/lite/examples/image_classification/raspberry_pi/labels.txt')
 
   #interpreter = Interpreter(args.model)
+  print("dir: ",os.getcwd())
   interpreter = Interpreter(model_path = "./examples/lite/examples/image_classification/raspberry_pi/model_unquant.tflite")
 
   interpreter.allocate_tensors()
