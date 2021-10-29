@@ -23,6 +23,7 @@ class MainWindow(QMainWindow, main_ui,QCoreApplication):
         self.setupUi(self)
         self.img_label.setPixmap(QtGui.QPixmap("coffee.png"))
         self.img_label.setGeometry(QtCore.QRect(250,50,500,500))
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
     def show(self):
         super().show()
