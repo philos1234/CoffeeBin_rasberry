@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>컵의 내용물을 버린뒤 다시 올려놓으세요</string>
+     <string>Empty the cup</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
