@@ -20,6 +20,7 @@ app = QApplication(sys.argv)
 
 #Variables
 global hx
+global p
 send_count = 0
 depth1 = 0
 depth2 = 0
@@ -62,7 +63,7 @@ def do_empty_gui():
 # main
 if __name__ == "__main__":
     hx = example.init_hx711()
-    #servo.servo_init()
+    #p = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
 
@@ -103,6 +104,7 @@ if __name__ == "__main__":
         
         except KeyboardInterrupt:
             print("keyboard interrupt")
+
             # servo.p.stop()
             # servo.GPIO.cleanup()
             break
