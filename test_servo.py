@@ -3,7 +3,7 @@ import time
 import keyboard
 import numpy
 
-start_deg = 7.2
+start_deg = 7.25
 
 def to_left():
     i = start_deg
@@ -27,7 +27,7 @@ def to_right():
         time.sleep(sleep_time)
         i = i+0.125
     time.sleep(5)
-    while i>=start_deg-0.12:
+    while i>=start_deg:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time )
