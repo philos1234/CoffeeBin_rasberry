@@ -30,7 +30,7 @@ def to_right():
         i = i-0.125
 
 
-pin = 12 # PWM pin num 18
+pin = 13 # PWM pin num 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
 p = GPIO.PWM(pin, 50)
