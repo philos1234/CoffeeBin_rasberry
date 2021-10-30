@@ -218,7 +218,7 @@
     </font>
    </property>
    <property name="text">
-    <string>확인</string>
+    <string>Confirm</string>
    </property>
   </widget>
   <widget class="QPushButton" name="reset">
@@ -236,7 +236,7 @@
     </font>
    </property>
    <property name="text">
-    <string>리셋</string>
+    <string>Reset</string>
    </property>
   </widget>
   <widget class="QLabel" name="display_text">
@@ -257,7 +257,7 @@
     </font>
    </property>
    <property name="text">
-    <string>전화번호를 입력하세요</string>
+    <string>insert your phone number</string>
    </property>
    <property name="scaledContents">
     <bool>false</bool>
