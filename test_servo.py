@@ -25,7 +25,7 @@ def to_right():
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i+0.125
-    while i>=start_deg:
+    while i>=start_deg-0.12:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time )
