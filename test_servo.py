@@ -7,7 +7,7 @@ start_deg = 7.125
 
 def to_left():
     i = start_deg
-    while i>=start_deg-1.825:
+    while i>=start_deg-1.95:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
