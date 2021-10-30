@@ -41,7 +41,7 @@ p = GPIO.PWM(pin, 50)
 p.start(0)
 p.ChangeDutyCycle(start_deg)
 time.sleep(2)
-sleep_time = 0.1
+sleep_time = 0.02
 
 try:
     while True:
