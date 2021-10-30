@@ -3,7 +3,7 @@ import time
 import keyboard
 import numpy
 
-start_deg = 7.25
+start_deg = 7
 
 def to_left():
     i = start_deg
