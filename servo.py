@@ -7,7 +7,7 @@ import numpy
 
 def to_left(p,sleep_time):
     i = 7
-    while i>=5.5:
+    while i>=5:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
@@ -20,7 +20,7 @@ def to_left(p,sleep_time):
 
 def to_right(p,sleep_time):
     i = 7
-    while i<=8.5:
+    while i<=9:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
@@ -40,7 +40,7 @@ def init_servo():
     p.start(0)
     p.ChangeDutyCycle(7)
     time.sleep(2)
-    return p,0.1
+    return p,0.05
 #
 # try:
 #     while True:
