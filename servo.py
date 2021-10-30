@@ -5,7 +5,7 @@ import time
 import keyboard
 import numpy
 
-def to_left():
+def to_left(p,sleep_time):
     i = 7
     while i>=4.5:
         p.ChangeDutyCycle(i)
@@ -18,7 +18,7 @@ def to_left():
         time.sleep(sleep_time)
         i = i+0.125
 
-def to_right():
+def to_right(p,sleep_time):
     i = 7
     while i<=9.5:
         p.ChangeDutyCycle(i)
@@ -40,18 +40,17 @@ def init_servo():
     p.start(0)
     p.ChangeDutyCycle(7)
     time.sleep(2)
-    sleep_time = 0.2
-    return p
-
-try:
-    while True:
-        a = int(input())
-        if a == 1:
-            to_left()
-        else:
-            to_right()
-
-except KeyboardInterrupt:
-    p.stop()
-
-GPIO.cleanup()
+    return p,0.2
+#
+# try:
+#     while True:
+#         a = int(input())
+#         if a == 1:
+#             to_left()
+#         else:
+#             to_right()
+#
+# except KeyboardInterrupt:
+#     p.stop()
+#
+# GPIO.cleanup()
