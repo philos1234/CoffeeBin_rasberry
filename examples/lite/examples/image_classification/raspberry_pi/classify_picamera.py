@@ -78,7 +78,7 @@ def main():
 
   with picamera.PiCamera(resolution=(224, 224), framerate=30) as camera:
     camera.start_preview()
-    camera.brightness=40
+    camera.brightness=60
     time.sleep(5)
     try:
       stream = io.BytesIO()
