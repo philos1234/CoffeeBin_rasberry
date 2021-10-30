@@ -64,7 +64,7 @@ def do_empty_gui():
 # main
 if __name__ == "__main__":
     hx = example.init_hx711()
-    #p,sleep_time = servo.init_servo()
+    p,sleep_time = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
 
