@@ -3,27 +3,29 @@ import time
 import keyboard
 import numpy
 
+start_deg = 6.5
+
 def to_left():
-    i = 7
-    while i>=4.5:
+    i = start_deg
+    while i>=start_deg-2:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i-0.125
-    while i<=7:
+    while i<=start_deg:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i+0.125
 
 def to_right():
-    i = 7
-    while i<=9:
+    i = start_deg
+    while i<=start_deg+2:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i+0.125
-    while i>=7:
+    while i>=start_deg:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time )
@@ -35,7 +37,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
 p = GPIO.PWM(pin, 50)
 p.start(0)
-p.ChangeDutyCycle(7)
+p.ChangeDutyCycle(start_deg)
 time.sleep(2)
 sleep_time = 0.05
 
