@@ -7,7 +7,7 @@ import numpy
 
 def to_left(p,sleep_time):
     i = 7
-    while i>=4.5:
+    while i>=5.5:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
@@ -20,7 +20,7 @@ def to_left(p,sleep_time):
 
 def to_right(p,sleep_time):
     i = 7
-    while i<=9.5:
+    while i<=8.5:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
@@ -33,14 +33,14 @@ def to_right(p,sleep_time):
 
 
 def init_servo():
-    pin = 12 # PWM pin num 18
+    pin = 13 # PWM pin num 18
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     p = GPIO.PWM(pin, 50)
     p.start(0)
     p.ChangeDutyCycle(7)
     time.sleep(2)
-    return p,0.2
+    return p,0.1
 #
 # try:
 #     while True:
