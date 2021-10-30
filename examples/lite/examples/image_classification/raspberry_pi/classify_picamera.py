@@ -76,10 +76,15 @@ def main():
   interpreter.allocate_tensors()
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
 
+  print("before changed, ")
+  print("height : ",height)
+  print("width : ", width)
+  height = 224
+  width = 224
   with picamera.PiCamera(resolution=(224, 224), framerate=15) as camera:
     camera.start_preview()
-    camera.brightness=80
-    time.sleep(5)
+    camera.brightness=65
+    time.sleep(4)
     try:
       stream = io.BytesIO()
       for _ in camera.capture_continuous(
