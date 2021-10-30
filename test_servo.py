@@ -7,7 +7,7 @@ start_deg = 7
 
 def to_left():
     i = start_deg
-    while i>=start_deg-2:
+    while i>=start_deg-1.75:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
@@ -21,7 +21,7 @@ def to_left():
 
 def to_right():
     i = start_deg
-    while i<=start_deg+2:
+    while i<=start_deg+1.75:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
@@ -41,7 +41,7 @@ p = GPIO.PWM(pin, 50)
 p.start(0)
 p.ChangeDutyCycle(start_deg)
 time.sleep(2)
-sleep_time = 0.02
+sleep_time = 0.04
 
 try:
     while True:
