@@ -22,6 +22,7 @@ app = QApplication(sys.argv)
 global hx
 global p
 global sleep_time
+global start_deg
 send_count = 0
 depth1 = 0
 depth2 = 0
@@ -64,7 +65,7 @@ def do_empty_gui():
 # main
 if __name__ == "__main__":
     hx = example.init_hx711()
-    p,sleep_time = servo.init_servo()
+    p,sleep_time,start_deg = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
 
@@ -94,10 +95,10 @@ if __name__ == "__main__":
             classify_result = tensor_flow()
             print("classfiy result : ",classify_result)
             if classify_result == True:
-                servo.to_left(p,sleep_time)
+                servo.to_left(p,sleep_time,start_deg)
 
             else :
-                servo.to_right(p,sleep_time)
+                servo.to_right(p,sleep_time,start_deg)
 
             # Point Accumlate
             phone_number = point_add_gui()

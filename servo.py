@@ -5,32 +5,33 @@ import time
 import keyboard
 import numpy
 
-def to_left(p,sleep_time):
-    i = 7
-    while i>=5:
+def to_left(p,sleep_time, start_deg):
+    i = start_deg
+    while i>=start_deg-2.125:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i-0.125
-    while i<=7:
+    time.sleep(3)
+    while i<=start_deg:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i+0.125
 
-def to_right(p,sleep_time):
-    i = 7
-    while i<=9:
+def to_right(p,sleep_time,start_deg):
+    i = start_deg
+    while i<=start_deg+2.125:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
         i = i+0.125
-    while i>=7:
+    time.sleep(3)
+    while i>=start_deg:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time )
         i = i-0.125
-
 
 def init_servo():
     pin = 13 # PWM pin num 18
@@ -40,8 +41,7 @@ def init_servo():
     p.start(0)
     p.ChangeDutyCycle(7)
     time.sleep(2)
-    return p,0.05
-#
+    return p,0.07, 7.125
 # try:
 #     while True:
 #         a = int(input())
