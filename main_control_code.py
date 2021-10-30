@@ -84,7 +84,7 @@ if __name__ == "__main__":
             print("gram : ",gram,"g")
             if gram < 3:
                 continue
-            elif gram > 20 :
+            elif gram > 30 :
                 do_empty_gui()
                 time.sleep(3)
                 continue
