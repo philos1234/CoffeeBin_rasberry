@@ -76,9 +76,9 @@ def main():
   interpreter.allocate_tensors()
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
 
-  with picamera.PiCamera(resolution=(224, 224), framerate=30) as camera:
+  with picamera.PiCamera(resolution=(224, 224), framerate=15) as camera:
     camera.start_preview()
-    camera.brightness=60
+    camera.brightness=80
     time.sleep(5)
     try:
       stream = io.BytesIO()
