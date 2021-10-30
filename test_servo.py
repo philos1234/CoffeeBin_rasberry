@@ -18,7 +18,7 @@ def to_left():
 
 def to_right():
     i = 7
-    while i<=9.5:
+    while i<=9:
         p.ChangeDutyCycle(i)
         print("angle : ",i)
         time.sleep(sleep_time)
