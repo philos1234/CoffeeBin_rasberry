@@ -24,7 +24,6 @@ import io
 app = QApplication(sys.argv)
 
 #Variables
-global model
 global hx
 global p
 global sleep_time
@@ -52,7 +51,7 @@ def init_keras():
 # return True/False
 # True : Plastic
 # False : Paper
-def tensor_flow():
+def tensor_flow(model):
     with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         try:  
             stream = io.BytesIO()
@@ -114,7 +113,6 @@ def do_empty_gui():
 
 # main
 if __name__ == "__main__":
-    global model
     #hx = example.init_hx711()
     model = init_keras()
     p,sleep_time,start_deg = servo.init_servo()
@@ -144,7 +142,7 @@ if __name__ == "__main__":
             #    continue
 
             #
-            classify_result = tensor_flow()
+            classify_result = tensor_flow(model)
             print("classify index : " + classify_result)
             print("here")
             time.sleep(2)
