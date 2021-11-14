@@ -45,3 +45,6 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         # run the inference
         prediction = model.predict(data)
         print(prediction)
+
+    finally:
+      camera.stop_preview()
