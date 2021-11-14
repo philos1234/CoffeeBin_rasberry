@@ -1,0 +1,4 @@
+0 paper
+1 paper_with_plastic
+2 plastic
+3 background
