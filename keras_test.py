@@ -23,7 +23,7 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
       stream = io.BytesIO()
       for _ in camera.capture_continuous(
           stream, format='jpeg', use_video_port=True):
-          
+
         model = tensorflow.keras.models.load_model('keras_model.h5')
         print("load completed")
         
@@ -52,7 +52,9 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         # run the inference
         prediction = model.predict(data)
         print(prediction)
-        time.sleep(3)
+        stream.seek(0)
+        stream.truncate()
+        #time.sleep(3)
 
     finally:
       camera.stop_preview()
