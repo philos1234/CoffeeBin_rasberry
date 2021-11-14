@@ -114,8 +114,9 @@ def do_empty_gui():
 
 # main
 if __name__ == "__main__":
+    global model
     #hx = example.init_hx711()
-    
+    model = init_keras()
     p,sleep_time,start_deg = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
