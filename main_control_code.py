@@ -156,9 +156,11 @@ if __name__ == "__main__":
             elif classify_result == 2 :
                 servo.to_right(p,sleep_time,start_deg)
 
-            else:
+            elif classify_result == 1:
                 do_empty_gui()
                 time.sleep(3)
+                continue
+            else:
                 continue
             # Point Accumlate
             phone_number = point_add_gui()
