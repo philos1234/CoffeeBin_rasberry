@@ -42,7 +42,7 @@ def check_load_cell():
 # True : Plastic
 # False : Paper
 def tensor_flow():
-    ret,prob = classify_picamera.main()
+    #ret,prob = classify_picamera.main()
     print("classify result : ",ret,"probability : ",prob)
     if ret == 0:
         return False
@@ -68,8 +68,8 @@ if __name__ == "__main__":
     p,sleep_time,start_deg = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
-
-    classify_result = tensor_flow()
+    #ret,prob = classify_picamera.main()
+    #classify_result = tensor_flow()
     while 1:
         try:
             time.sleep(2)
@@ -92,10 +92,9 @@ if __name__ == "__main__":
             #    continue
 
             #
-            
-            print("classfiy result : ",classify_result)
+            classify_result = tensor_flow()
             print("here")
-            time.sleep(5)
+            time.sleep(2)
             continue
 
             if classify_result == True:
