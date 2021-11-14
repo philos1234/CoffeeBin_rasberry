@@ -94,7 +94,7 @@ if __name__ == "__main__":
             #
             
             print("classfiy result : ",classify_result)
-
+            print("here")
             time.sleep(5)
             continue
 
