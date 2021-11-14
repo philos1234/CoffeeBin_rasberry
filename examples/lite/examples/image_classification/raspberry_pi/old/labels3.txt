@@ -1,4 +1,5 @@
 0 paper
 1 paper_with_plastic
 2 plastic
-3 background
+3 Plastic_with_holder
+4 background
