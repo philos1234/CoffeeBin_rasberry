@@ -1,6 +1,7 @@
 import tensorflow.keras
 from PIL import Image, ImageOps
 import numpy as np
+import picamera
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
