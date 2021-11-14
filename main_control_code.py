@@ -89,6 +89,7 @@ def tensor_flow(model):
                 #time.sleep(3)
                 max_idx = 0
                 max_prob = 0
+                print (type(prediction))
                 for i in range(0,4):
                     if prediction[i] > max_prob:
                         max_prob = prediction[i]
