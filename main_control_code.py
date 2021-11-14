@@ -147,9 +147,6 @@ if __name__ == "__main__":
             #
             classify_result = tensor_flow(model)
             print("classify index : " + str(classify_result))
-            print("here")
-            time.sleep(2)
-            continue
 
             #paper
             if classify_result == 0:
