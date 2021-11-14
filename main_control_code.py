@@ -64,12 +64,12 @@ def do_empty_gui():
 
 # main
 if __name__ == "__main__":
-    hx = example.init_hx711()
+    #hx = example.init_hx711()
     p,sleep_time,start_deg = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
 
-
+    classify_result = tensor_flow()
     while 1:
         try:
             time.sleep(2)
@@ -82,18 +82,22 @@ if __name__ == "__main__":
                 print("distance : ",d1,d2)
                 send_count = 0
 
-            gram = check_load_cell()
-            print("gram : ",gram,"g")
-            if gram < 3:
-                continue
-            elif gram > 30 :
-                do_empty_gui()
-                time.sleep(3)
-                continue
+            #gram = check_load_cell()
+            #print("gram : ",gram,"g")
+            #if gram < 3:
+            #    continue
+            #elif gram > 30 :
+            #    do_empty_gui()
+            #    time.sleep(3)
+            #    continue
 
             #
-            classify_result = tensor_flow()
+            
             print("classfiy result : ",classify_result)
+
+            time.sleep(5)
+            continue
+
             if classify_result == True:
                 servo.to_left(p,sleep_time,start_deg)
 
