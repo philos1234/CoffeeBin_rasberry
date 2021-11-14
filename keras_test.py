@@ -3,6 +3,7 @@ from PIL import Image, ImageOps
 import numpy as np
 import picamera
 import io
+import time
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
@@ -48,6 +49,7 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         # run the inference
         prediction = model.predict(data)
         print(prediction)
+        time.sleep(3)
 
     finally:
       camera.stop_preview()
