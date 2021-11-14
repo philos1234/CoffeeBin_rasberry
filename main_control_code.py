@@ -43,7 +43,6 @@ def check_load_cell():
     return example.get_weight(hx)
 
 def init_keras():
-    global model
     np.set_printoptions(suppress=True)
     model = tensorflow.keras.models.load_model('keras_model.h5')
 
