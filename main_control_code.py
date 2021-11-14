@@ -96,7 +96,7 @@ def tensor_flow(model):
                         max_idx= i
                 return i
         finally:
-        camera.stop_preview()
+            pass
 
 
 def point_add_gui()->str: # 입력한 전화번호를 리턴
