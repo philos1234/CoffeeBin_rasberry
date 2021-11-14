@@ -19,13 +19,13 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
     #camera.start_preview()
     # camera.brightness=65
     # time.sleep(4)
+    model = tensorflow.keras.models.load_model('keras_model.h5')
+    print("load completed")
     try:  
       stream = io.BytesIO()
       for _ in camera.capture_continuous(
           stream, format='jpeg', use_video_port=True):
 
-        model = tensorflow.keras.models.load_model('keras_model.h5')
-        print("load completed")
         
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         stream.seek(0)
