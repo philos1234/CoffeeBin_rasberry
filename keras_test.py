@@ -60,7 +60,7 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         stream.truncate()
 
         
-        time.sleep(3)
+        time.sleep(5)
 
     finally:
       camera.stop_preview()
