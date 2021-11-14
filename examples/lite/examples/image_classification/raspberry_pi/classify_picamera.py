@@ -87,6 +87,8 @@ def main():
         stream.seek(0)
         image = Image.open(stream).convert('RGB').resize((width, height),
                                                          Image.ANTIALIAS)
+        print(width)
+        print(height)
         start_time = time.time()
         results = classify_image(interpreter, image)
         elapsed_ms = (time.time() - start_time) * 1000
