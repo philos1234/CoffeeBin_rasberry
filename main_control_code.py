@@ -52,7 +52,7 @@ def init_keras():
 # return True/False
 # True : Plastic
 # False : Paper
-def tensor_flow():
+def tensor_flow(model):
     with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         try:  
             stream = io.BytesIO()
