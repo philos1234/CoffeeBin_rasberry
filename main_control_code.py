@@ -45,6 +45,7 @@ def check_load_cell():
 def init_keras():
     np.set_printoptions(suppress=True)
     model = tensorflow.keras.models.load_model('keras_model.h5')
+    return model
 
 # Classify the cup using TensorFlow Lite
 # return True/False
