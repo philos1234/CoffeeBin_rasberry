@@ -96,7 +96,7 @@ def tensor_flow(model):
                     if tmp_list[0][i] > max_prob:
                         max_prob = tmp_list[0][i]
                         max_idx= i
-                return i
+                return max_idx
         finally:
             pass
 
@@ -151,12 +151,18 @@ if __name__ == "__main__":
             time.sleep(2)
             continue
 
-            if classify_result == True:
+            #paper
+            if classify_result == 0:
                 servo.to_left(p,sleep_time,start_deg)
 
-            else :
+            #plastic
+            elif classify_result == 2 :
                 servo.to_right(p,sleep_time,start_deg)
 
+            else:
+                do_empty_gui()
+                time.sleep(3)
+                continue
             # Point Accumlate
             phone_number = point_add_gui()
             print("received phone number : ",phone_number)
