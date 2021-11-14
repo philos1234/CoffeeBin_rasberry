@@ -55,46 +55,46 @@ def init_keras():
 def tensor_flow(model):
     with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         try:  
-        stream = io.BytesIO()
-        for _ in camera.capture_continuous(
-            stream, format='jpeg', use_video_port=True):
+            stream = io.BytesIO()
+            for _ in camera.capture_continuous(
+                stream, format='jpeg', use_video_port=True):
 
-            
-            data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-            stream.seek(0)
-            image = Image.open(stream).convert('RGB').resize((224, 224),
-                                                            Image.ANTIALIAS)
+                
+                data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+                stream.seek(0)
+                image = Image.open(stream).convert('RGB').resize((224, 224),
+                                                                Image.ANTIALIAS)
 
-            #resize the image to a 224x224 with the same strategy as in TM2:
-            #resizing the image to be at least 224x224 and then cropping from the center
-            size = (224, 224)
-            image = ImageOps.fit(image, size, Image.ANTIALIAS)
+                #resize the image to a 224x224 with the same strategy as in TM2:
+                #resizing the image to be at least 224x224 and then cropping from the center
+                size = (224, 224)
+                image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
-            #turn the image into a numpy array
-            image_array = np.asarray(image)
+                #turn the image into a numpy array
+                image_array = np.asarray(image)
 
-            # display the resized image
-            #image.show()
+                # display the resized image
+                #image.show()
 
-            # Normalize the image
-            normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+                # Normalize the image
+                normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
 
-            # Load the image into the array
-            data[0] = normalized_image_array
+                # Load the image into the array
+                data[0] = normalized_image_array
 
-            # run the inference
-            prediction = model.predict(data)
-            #print(prediction)
-            stream.seek(0)
-            stream.truncate()
-            #time.sleep(3)
-            max_idx = 0
-            max_prob = 0
-            for i in range(0,4):
-                if prediction[i] > max_prob:
-                    max_prob = prediction[i]
-                    max_idx= i
-            return i
+                # run the inference
+                prediction = model.predict(data)
+                #print(prediction)
+                stream.seek(0)
+                stream.truncate()
+                #time.sleep(3)
+                max_idx = 0
+                max_prob = 0
+                for i in range(0,4):
+                    if prediction[i] > max_prob:
+                        max_prob = prediction[i]
+                        max_idx= i
+                return i
         finally:
         camera.stop_preview()
 
