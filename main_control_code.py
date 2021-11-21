@@ -37,13 +37,13 @@ url = 'http://ec2-3-34-187-76.ap-northeast-2.compute.amazonaws.com'
 #Functions
 
 def send_height(h1, h2):
-    api = url+"/bin/amount"
+    api = url+'/bin/amount/'
     data ={'bin_name':'first_bin', 'plastic_amount' : int(h1),'paper_amount':int(h2)}
     headers={'Content-Type':'application/json'}
     response = requests.post(api,headers=headers, data= json.dumps(data))
 
 def send_phonenumber(number):
-    api = url+"/bin/point"
+    api = url+'/bin/point/'
     data ={'phone_number':str(number)}
     headers={'Content-Type':'application/json'}
     response = requests.post(api,headers=headers, data= json.dumps(data))
