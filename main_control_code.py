@@ -99,13 +99,13 @@ def tensor_flow(model):
                 #print(prediction)
                 stream.seek(0)
                 stream.truncate()
-                #time.sleep(3)
+                #time.sleep(3) 
                 max_idx = 0
                 max_prob = 0
                 print (type(prediction))
                 print(prediction)
                 tmp_list = prediction.tolist()
-                for i in range(0,4):
+                for i in range(0,5):
                     if tmp_list[0][i] > max_prob:
                         max_prob = tmp_list[0][i]
                         max_idx= i
