@@ -95,10 +95,8 @@ def tensor_flow(model):
 
                 # run the inference
                 prediction = model.predict(data)
-                #print(prediction)
                 stream.seek(0)
                 stream.truncate()
-                #time.sleep(3) 
                 max_idx = 0
                 max_prob = 0
                 print("Prediction result : "+str(prediction))
@@ -108,11 +106,12 @@ def tensor_flow(model):
                         max_prob = tmp_list[0][i]
                         max_idx= i
                 
+                #code just for presentation
                 if max_idx != 4:
                     camera.start_preview()
                     time.sleep(2)
                     camera.stop_preview()
-                    
+
                 return max_idx
             
         finally:
@@ -137,23 +136,18 @@ p,sleep_time,start_deg = servo.init_servo()
 # main
 if __name__ == "__main__":
     send_count = 0
-    #hx = example.init_hx711()
     Ultrasonic.ultra_init()
-    #gps.gps_init()
-    #ret,prob = classify_picamera.main()
-    #classify_result = tensor_flow()
     while 1:
         try:
             time.sleep(2)
 
             send_count = send_count+1
             print("send count : "+str(send_count))
-            if send_count == 2:
+            if send_count == 10:
                 # update value of ultra and gps info,
                 # and send info to server
                 (d1, d2) = Ultrasonic.get_distance()
                 send_height(d1,d2)
-                print("send!")
                 send_count = 0
             #
             classify_result = tensor_flow(model)
