@@ -66,6 +66,8 @@ def init_keras():
 def tensor_flow(model):
     with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         try:  
+            
+            camera.start_preview()
             stream = io.BytesIO()
             for _ in camera.capture_continuous(
                 stream, format='jpeg', use_video_port=True):
@@ -102,12 +104,15 @@ def tensor_flow(model):
                 max_idx = 0
                 max_prob = 0
                 print("Prediction result : "+str(prediction))
+                time.sleep(1)
+                camera.stop_preview()
                 tmp_list = prediction.tolist()
                 for i in range(0,5):
                     if tmp_list[0][i] > max_prob:
                         max_prob = tmp_list[0][i]
                         max_idx= i
                 return max_idx
+            
         finally:
             pass
 
