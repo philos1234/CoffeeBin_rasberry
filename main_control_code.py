@@ -37,7 +37,7 @@ url = 'http://ec2-3-34-187-76.ap-northeast-2.compute.amazonaws.com:8080'
 
 def send_height(h1, h2):
     api = url+'/bin/amount'
-    data ={'bin_name':'first_bin', 'plastic_amount' : int(h1),'paper_amount':int(h2)}
+    data ={'bin_name':'first_bin', 'plastic_amount' : int(h2),'paper_amount':int(h1)}
     headers={'Content-Type':'application/json'}
     response = requests.post(api,headers=headers, data= json.dumps(data))
 
@@ -143,7 +143,7 @@ if __name__ == "__main__":
 
             send_count = send_count+1
             print("send count : "+str(send_count))
-            if send_count == 10:
+            if send_count == 3:
                 # update value of ultra and gps info,
                 # and send info to server
                 (d1, d2) = Ultrasonic.get_distance()
