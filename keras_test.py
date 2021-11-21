@@ -54,13 +54,13 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         print(prediction)
         tmp_list = prediction.tolist()
         camera.annotate_text = 'probability : \n%.2f  %.2f  %.2f  %.2f' % (tmp_list[0][0],tmp_list[0][1],
-        tmp_list[0][2],tmp_list[0][3])
+        tmp_list[0][2],tmp_list[0][3],tmp[0][4])
 
         stream.seek(0)
         stream.truncate()
 
         
-        time.sleep(5)
+        time.sleep(1)
 
     finally:
       camera.stop_preview()
