@@ -53,7 +53,7 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         prediction = model.predict(data)
         print(prediction)
         tmp_list = prediction.tolist()
-        camera.annotate_text = 'probability : \n%.2f  %.2f  %.2f  %.2f' % (tmp_list[0][0],tmp_list[0][1],
+        camera.annotate_text = 'probability : \nplastic : %.2f\nplastic_holder: %.2f\npaper:  %.2f \npaper_cup: %.2f\n background: %.2f' % (tmp_list[0][0],tmp_list[0][1],
         tmp_list[0][2],tmp_list[0][3],tmp_list[0][4])
 
         stream.seek(0)
