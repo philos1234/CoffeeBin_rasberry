@@ -126,11 +126,11 @@ def do_empty_gui():
     
 
 
+model = init_keras()
+p,sleep_time,start_deg = servo.init_servo()
 # main
 if __name__ == "__main__":
     #hx = example.init_hx711()
-    model = init_keras()
-    p,sleep_time,start_deg = servo.init_servo()
     Ultrasonic.ultra_init()
     #gps.gps_init()
     #ret,prob = classify_picamera.main()
