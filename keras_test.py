@@ -15,7 +15,7 @@ np.set_printoptions(suppress=True)
 # The 'length' or number of images you can put into the array is
 # determined by the first position in the shape tuple, in this case 1.
 
-with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
+with picamera.PiCamera(resolution=(2592, 1944), framerate=35) as camera:
     camera.start_preview()
     # camera.brightness=65
     # time.sleep(4)
@@ -29,7 +29,7 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         stream.seek(0)
-        image = Image.open(stream).convert('RGB').resize((224, 224),
+        image = Image.open(stream).convert('RGB').resize((2592, 1944),
                                                          Image.ANTIALIAS)
 
         #resize the image to a 224x224 with the same strategy as in TM2:
@@ -55,7 +55,7 @@ with picamera.PiCamera(resolution=(224, 224), framerate=35) as camera:
         tmp_list = prediction.tolist()
         camera.annotate_text = 'plastic : %.2fplastic_holder: %.2f\npaper:  %.2f paper_cup: %.2f\nbackground: %.2f' % (tmp_list[0][0],tmp_list[0][1],
         tmp_list[0][2],tmp_list[0][3],tmp_list[0][4])
-        camera.annotate_text_size = 60
+        camera.annotate_text_size = 20
         stream.seek(0)
         stream.truncate()
 
