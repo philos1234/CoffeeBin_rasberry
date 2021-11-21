@@ -39,7 +39,7 @@ def init_servo():
     GPIO.setup(pin, GPIO.OUT)
     p = GPIO.PWM(pin, 50)
     p.start(0)
-    p.ChangeDutyCycle(7)
+    #p.ChangeDutyCycle(7)
     time.sleep(2)
     return p,0.07, 7.125
 # try:
