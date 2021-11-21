@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Empty the cup</string>
+     <string>Recycle properly</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -66,7 +66,7 @@
      </font>
     </property>
     <property name="text">
-     <string>확인</string>
+     <string>Confirm</string>
     </property>
    </widget>
   </widget>
