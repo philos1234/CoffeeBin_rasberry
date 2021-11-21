@@ -4,6 +4,7 @@ import numpy
 import keyboard
 import servo
 import Ultrasonic
+import requests, json
 # import gps
 import sys
 from PyQt5.QtWidgets import *
@@ -31,9 +32,21 @@ global start_deg
 send_count = 0
 depth1 = 0
 depth2 = 0
+url = 'http://ec2-3-34-187-76.ap-northeast-2.compute.amazonaws.com'
 
 #Functions
 
+def send_height(h1, h2):
+    api = url+"/bin/amount"
+    data ={'bin_name':'inhafront', 'plastic_amount' : int(h1),'paper_amount':int(h2)}
+    headers={'Content-Type':'application/json'}
+    response = requests.post(url,headers=headers, data= json.dumps(data))
+
+def send_phonenumber(number):
+    api = url+"/bin/point"
+    data ={'phone_number':str(number)}
+    headers={'Content-Type':'application/json'}
+    response = requests.post(url,headers=headers, data= json.dumps(data))
 
 # Load Cell function
 # return True/False
@@ -132,7 +145,8 @@ if __name__ == "__main__":
                 # update value of ultra and gps info,
                 # and send info to server
                 (d1, d2) = Ultrasonic.get_distance()
-                print("distance : ",d1,d2)
+                send_height(d1,d2)
+                print("send!")
                 send_count = 0
 
             #gram = check_load_cell()
@@ -148,22 +162,25 @@ if __name__ == "__main__":
             classify_result = tensor_flow(model)
             print("classify index : " + str(classify_result))
 
-            #paper
-            if classify_result == 0:
+            #background
+            if classify_result == 4:
+                continue
+
+            # Plastic  
+            elif classify_result == 0:
                 servo.to_left(p,sleep_time,start_deg)
 
-            #plastic
+            # Paper
             elif classify_result == 2 :
                 servo.to_right(p,sleep_time,start_deg)
 
-            elif classify_result == 1:
+            else:
                 do_empty_gui()
                 time.sleep(3)
                 continue
-            else:
-                continue
             # Point Accumlate
             phone_number = point_add_gui()
+            send_phonenumber(phone_number)
             print("received phone number : ",phone_number)
         
         except KeyboardInterrupt:

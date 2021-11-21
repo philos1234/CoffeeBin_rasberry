@@ -1,0 +1,5 @@
+0 Plastic
+1 Plastic_holder
+2 Paper
+3 Paper_cap
+4 Background
