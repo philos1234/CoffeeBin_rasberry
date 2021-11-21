@@ -29,7 +29,6 @@ global hx
 global p
 global sleep_time
 global start_deg
-send_count = 0
 depth1 = 0
 depth2 = 0
 url = 'http://ec2-3-34-187-76.ap-northeast-2.compute.amazonaws.com:8080'
@@ -130,6 +129,7 @@ model = init_keras()
 p,sleep_time,start_deg = servo.init_servo()
 # main
 if __name__ == "__main__":
+    send_count = 0
     #hx = example.init_hx711()
     Ultrasonic.ultra_init()
     #gps.gps_init()
@@ -140,7 +140,8 @@ if __name__ == "__main__":
             time.sleep(2)
 
             send_count = send_count+1
-            if send_count == 10:
+            print("send count : "+str(send_count))
+            if send_count == 2:
                 # update value of ultra and gps info,
                 # and send info to server
                 (d1, d2) = Ultrasonic.get_distance()
