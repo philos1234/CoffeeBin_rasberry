@@ -102,8 +102,7 @@ def tensor_flow(model):
                 #time.sleep(3) 
                 max_idx = 0
                 max_prob = 0
-                print (type(prediction))
-                print(prediction)
+                print("Prediction result : "+str(prediction))
                 tmp_list = prediction.tolist()
                 for i in range(0,5):
                     if tmp_list[0][i] > max_prob:
@@ -148,16 +147,6 @@ if __name__ == "__main__":
                 send_height(d1,d2)
                 print("send!")
                 send_count = 0
-
-            #gram = check_load_cell()
-            #print("gram : ",gram,"g")
-            #if gram < 3:
-            #    continue
-            #elif gram > 30 :
-            #    do_empty_gui()
-            #    time.sleep(3)
-            #    continue
-
             #
             classify_result = tensor_flow(model)
             print("classify index : " + str(classify_result))
@@ -185,8 +174,7 @@ if __name__ == "__main__":
         
         except KeyboardInterrupt:
             print("keyboard interrupt")
-
-            # servo.p.stop()
-            # servo.GPIO.cleanup()
+            servo.p.stop()
+            servo.GPIO.cleanup()
             break
            
